@@ -17,3 +17,18 @@ int main() {
 ````
 
 Notez que vous pouvez également utiliser des templates pour définir des classes en C++, de la même manière que vous définissez des templates pour les fonctions. Si vous avez des questions plus spécifiques sur les templates en C++, n'hésitez pas à me les poser.
+
+Cette fonction peut être utilisée avec différents types de données, comme des entiers, des flottants ou des chaînes de caractères. Par exemple :
+
+```C
+int i1 = 1, i2 = 2;
+float f1 = 1.5, f2 = 2.5;
+std::string s1 = "hello", s2 = "world";
+
+int i_max = max(i1, i2); // retourne 2
+float f_max = max(f1, f2); // retourne 2.5
+std::string s_max = max(s1, s2); // retourne "world"
+```
+
+Les templates en C++ permettent de créer des fonctions et des classes génériques qui peuvent être utilisées avec différents types de données. Ils offrent une flexibilité et une réutilisabilité importantes pour le code C++.
+
