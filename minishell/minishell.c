@@ -3,10 +3,61 @@
 #include <unistd.h>
 #include <string.h>
 #include <errno.h>
+#include <fcntl.h>
 #include <sys/types.h>
 #include <sys/wait.h>
 
 #define BUFFER_SIZE 1024
+
+// Fonction pour gérer les redirections d'entrée et de sortie dans la commande
+void handle_redirection(char *args[], int i) {
+  // Rechercher les opérateurs de redirection dans la liste des arguments
+  int redirect_input = 0;
+  int redirect_output = 0;
+  char *input_file = NULL;
+  char *output_file = NULL;
+  for (int j = 0; j < i; j++) {
+    if (strcmp(args[j], "<") == 0) {
+      redirect_input = 1;
+      input_file = args[j + 1];
+    } else if (strcmp(args[j], ">") == 0) {
+      redirect_output = 1;
+      output_file = args[j + 1];
+    }
+  }
+
+  // Si une redirection d'entrée est trouvée, ouvrir le fichier en mode lecture
+  int fd_input = 0;
+  if (redirect_input) {
+    fd_input = open(input_file, O_RDONLY);
+    if (fd_input == -1) {
+      printf("minishell: failed to open file '%s' for input redirection: %s\n", input_file, strerror(errno));
+      return;
+    }
+  }
+
+  // Si une redirection de sortie est trouvée, ouvrir ou créer le fichier en mode écriture
+  int fd_output = 1;
+  if (redirect_output) {
+    fd_output = open(output_file, O_WRONLY | O_CREAT, 0644);
+    if (fd_output == -1) {
+      printf("minishell: failed to open file '%s' for output redirection: %s\n", output_file, strerror(errno));
+      return;
+    }
+  }
+
+  // Si une redirection d'entrée est trouvée, remplacer le descripteur d'entrée standard par le descripteur du fichier
+  if (redirect_input) {
+    dup2(fd_input, 0);
+    close(fd_input);
+  }
+
+  // Si une redirection de sortie est trouvée, remplacer le descripteur de sortie standard par le descripteur du fichier
+  if (redirect_output) {
+    dup2(fd_output, 1);
+    close(fd_output);
+  }
+}
 
 // Fonction pour exécuter la commande saisie par l'utilisateur
 void execute_command(char *command) {
@@ -56,6 +107,9 @@ while (arg != NULL) {
 }
 args[i] = NULL;
 
+handle_redirection(args, i);
+
+
 int result = execvp(args[0], args);
 
 // Si la commande a échoué, afficher un message d'erreur et quitter le processus enfant
@@ -93,6 +147,9 @@ while (arg != NULL) {
   arg = strtok(NULL, " ");
 }
 args[i] = NULL;
+
+// Gérer les redirections d'entrée et de sortie avant d'exécuter la deuxième commande
+handle_redirection(args, i);
 
 int result = execvp(args[0], args);
 
@@ -134,6 +191,7 @@ else {
     }
     args[i] = NULL;
 
+	handle_redirection(args, i);
     int result = execvp(args[0], args);
 
     // Si la commande a échoué, afficher un message d'erreur et quitter le processus enfant
