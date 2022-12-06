@@ -18,6 +18,7 @@ int main() {
 
 Notez que vous pouvez également utiliser des templates pour définir des classes en C++, de la même manière que vous définissez des templates pour les fonctions. Si vous avez des questions plus spécifiques sur les templates en C++, n'hésitez pas à me les poser.
 
+<<<<<<< HEAD
 Voici un exemple de template en C++ :
 
 ```C++
@@ -155,3 +156,19 @@ Dans cet exemple, la classe MyClass est un template avec un paramètre génériq
 Dans main, la classe est instanciée avec des arguments de type int et double, ce qui génère deux versions spécifiques de la classe MyClass, une pour chaque type d'argument. Lorsque la méthode getSquare est appelée, le type du résultat est déterminé par le paramètre générique `U`de la méthode. Dans le premier appel àgetSquare, le paramètre générique est remplacé par double, ce qui fait que la valeur retournée sera un doublecontenant le carré de la valeur devalue_(unintdans ce cas). Dans le second appel àgetSquare, le paramètre générique est remplacé par int, ce qui fait que la valeur retournée sera un intcontenant le carré de la valeur devalue_(undouble` dans ce cas).
 
 En résumé, cet exemple montre comment utiliser des templates de manière avancée en C++, en déclarant des classes et des fonctions membres avec des paramètres génériques. Cela permet de définir des classes et des fonctions réutilisables qui peuvent être utilisées avec différents types d'arguments, en fonction des besoins.
+=======
+Cette fonction peut être utilisée avec différents types de données, comme des entiers, des flottants ou des chaînes de caractères. Par exemple :
+
+```C
+int i1 = 1, i2 = 2;
+float f1 = 1.5, f2 = 2.5;
+std::string s1 = "hello", s2 = "world";
+
+int i_max = max(i1, i2); // retourne 2
+float f_max = max(f1, f2); // retourne 2.5
+std::string s_max = max(s1, s2); // retourne "world"
+```
+
+Les templates en C++ permettent de créer des fonctions et des classes génériques qui peuvent être utilisées avec différents types de données. Ils offrent une flexibilité et une réutilisabilité importantes pour le code C++.
+
+>>>>>>> 681670b0a3c6e2aa5fb3281c9bc32782e47a4d96
