@@ -46,6 +46,8 @@ Il existe plusieurs jurisprudences importantes concernant le droit à l'oubli, q
 
 - *Décision de la CJUE du 13 juin 2019 dans l'affaire Google LLC v CNIL* : dans cette affaire, la CJUE a jugé que le droit à l'oubli ne s'applique pas aux résultats de recherche d'un moteur de recherche qui ne sont pas liés à l'Union européenne. Cette décision a limité l'application territoriale du droit à l'oubli en précisant que ce droit ne s'applique pas aux résultats de recherche d'un moteur de recherche qui ne sont pas liés à l'Union européenne. Cette décision a suscité des réactions mitigées, certains considérant qu'elle limite la portée du droit à l'oubli, tandis que d'autres estiment qu'elle préserve l'exercice du droit à la liberté d'expression dans ces cas.
 
+### CNIL
+
 En France, la Commission nationale de l'informatique et des libertés (CNIL) est l'autorité administrative indépendante chargée de veiller au respect de la loi Informatique et Libertés et du RGPD.
 
 La CNIL peut notamment prononcer des sanctions en cas de violation de cette loi. Voici quelques exemples de ces sanctions :
@@ -57,4 +59,3 @@ La CNIL peut notamment prononcer des sanctions en cas de violation de cette loi.
 - Amende : cette sanction consiste en une pénalité financière infligée à l'entreprise ou à l'autorité qui a violé la loi Informatique et Libertés. Le montant de l'amende peut aller jusqu'à 10 millions d'euros ou 2 % du chiffre d'affaires global annuel de l'entreprise, selon le montant le plus élevé.
 
 - Suspension ou interdiction d'utiliser des données personnelles : cette sanction consiste en la suspension ou l'interdiction de l'utilisation de données personnelles par l'entreprise ou l'autorité qui a violé la loi Informatique et Libertés. Cette sanction peut être prononcée par le Conseil de l'ordre de la CNIL, dans des cas graves ou répétés de violation de la loi.
-
